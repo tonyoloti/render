@@ -39,7 +39,7 @@ app.post("/render", async (req, res) => {
     const vf = [
       "drawtext=fontfile=/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf",
       `textfile=${textPath}`,
-      "fontsize=28",
+      "fontsize=18",
       "fontcolor=white",
       "borderw=2",
       "bordercolor=black",
