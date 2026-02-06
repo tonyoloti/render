@@ -25,19 +25,19 @@ app.post("/render", async (req, res) => {
 
     fs.writeFileSync(textPath, text, "utf8");
 
-    const vf = [
-      "drawtext=fontfile=/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf",
-      `textfile=${textPath}`,
-      "fontsize=64",
-      "fontcolor=white",
-      "borderw=6",
-      "bordercolor=black",
-      "box=1",
-      "boxcolor=black@0.35",
-      "boxborderw=20",
-      "x=(w-text_w)/2",
-      "y=h-(text_h*2)"
-    ].join(":");
+const vf = [
+  "drawtext=fontfile=/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf",
+  `textfile=${textPath}`,
+  "fontsize=64",
+  "fontcolor=white",
+  "borderw=6",
+  "bordercolor=black",
+  "box=1",
+  "boxcolor=black@0.35",
+  "boxborderw=20",
+  "x=(w-text_w)/2",
+  "y=h-(text_h*2)"
+].join(":");
 
     await new Promise((resolve, reject) => {
       execFile("ffmpeg", ["-y", "-i", inputPath, "-vf", vf, "-c:a", "copy", outputPath],
