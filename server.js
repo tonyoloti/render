@@ -28,15 +28,15 @@ app.post("/render", async (req, res) => {
 const vf = [
   "drawtext=fontfile=/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf",
   `textfile=${textPath}`,
-  "fontsize=64",
+  "fontsize=28",                // 👈 2–3x plus petit
   "fontcolor=white",
-  "borderw=6",
+  "borderw=2",
   "bordercolor=black",
   "box=1",
   "boxcolor=black@0.35",
-  "boxborderw=20",
-  "x=(w-text_w)/2",
-  "y=h-(text_h*2)"
+  "boxborderw=12",
+  "x=40",                       // 👈 aligné à gauche
+  "y=(h-text_h)/2"              // 👈 centré verticalement
 ].join(":");
 
     await new Promise((resolve, reject) => {
